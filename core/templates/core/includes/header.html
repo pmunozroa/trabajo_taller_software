@@ -3,6 +3,7 @@
     <nav id="nav">
         <ul>
             <li><a href="{% url 'core:home' %}">Home</a></li>
+            <li><a href="{% url 'core:about' %}">Acerca de nosotros</a></li>
 
             {% if request.user.is_person %}
             <li><a href="{% url 'ecopoints:map_view' %}" class="button">Ver los puntos de mi comuna</a></li>

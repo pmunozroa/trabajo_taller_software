@@ -4,7 +4,6 @@
 Mapa de los puntos
 {% endblock title %}
 {% load leaflet_tags %}
-
 {% block content %}
 <section id="banner">
     <h2>Mapa</h2>
@@ -38,7 +37,6 @@ Mapa de los puntos
 {% leaflet_js %}
 {% leaflet_css %}
 <script type="text/javascript">
-
     function map_init(map, options) {
         /* start-ignore*/
         {% for r in recyclingpoint_list %}
