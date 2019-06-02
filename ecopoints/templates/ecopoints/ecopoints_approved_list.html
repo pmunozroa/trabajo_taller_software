@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+Listado Puntos de reciclaje
+{% endblock title %}
+{% block content %}
+<!-- Banner -->
+<section id="banner">
+    <h2>Puntos de reciclaje - {{request.user.municipality.country}} - {{request.user.municipality.city}}</h2>
+</section>
+<!-- Main -->
+<section id="main" class="container">
+    <section class="box special">
+        <h2>Listado de puntos de reciclajes registrados en su comuna.</h2>
+        <!-- Form -->
+        {% if recyclingpoint_list %}
+        <table>
+            <thead>
+                <td style="color: black">RUT</td>
+                <td style="color: black">Nombre</td>
+                <td style="color: black">Dirección</td>
+                <td style="color: black">Comuna</td>
+                <td style="color: black">Coordenadas</td>
+            </thead>
+            <tbody id="bodytable">
+                {% for r in recyclingpoint_list %}
+                <tr>
+                    <td style="color: black">
+                        <a href="{% url 'ecopoints:recycling_detail' r.id %}">{{r.real_id_point}}</a>
+                    </td>
+                    <td style="color: black">{{r.name_point}}</td>
+                    <td style="color: black">{{r.address_point}}</td>
+                    <td style="color: black">{{r.city}}</td>
+                    <td style="color: black">
+                        <a target="_blank"
+                            href="https://maps.google.com/?q={{r.latitude_point|floatformat:'.2d'}},{{r.longitude_point|floatformat:'.2d'}}">
+                            {{r.latitude_point|floatformat:".2d"}},{{r.longitude_point|floatformat:".2d"}}
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No hay ningun punto activo en su zona.</p>
+        {% endif %}
+    </section>
+</section>
+{% endblock content %}

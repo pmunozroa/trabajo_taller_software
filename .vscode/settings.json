@@ -1,0 +1,11 @@
+{
+    "python.linting.pylintEnabled": false,
+    "python.linting.pep8Enabled": true,
+    "python.linting.enabled": true,
+    "python.pythonPath": "/home/patricio/anaconda3/envs/django/bin/python",
+    "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+    "python.linting.pep8Args": [
+        "--max-length 120"
+    ],
+    "javascript.validate.enable": false,
+}

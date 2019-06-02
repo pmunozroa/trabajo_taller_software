@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+Detalle {{user.first_name}} {{user.last_name}}
+{% endblock title %}
+{% block content %}
+<section id="banner">
+    <h2>Información detallada de usuario.</h2>
+</section>
+<section id="main" class="container">
+    <section class="box special">
+        <p><h2><u>{{user.first_name}} {{user.last_name}}</u></h2></p>
+        <p>Fecha de registro: {{user.date_joined}}</p>
+        <p>Última conexión: {{user.last_login}}</p>
+        <p>RUN: {{user.person.real_id_user}}</p>
+        <p>Comuna: {{user.person.city.name}}</p>
+        <p>Región: {{user.person.country.name}}</p>
+        <a href="{% url 'ecopoints:history_request' %}" class="button">Volver</a>
+    </section>
+</section>
+{% endblock content %}

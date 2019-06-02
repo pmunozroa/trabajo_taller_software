@@ -1,0 +1,22 @@
+{% for r in recyclingpoint_list %}
+<tr>
+    <td style="color: black">{{r.real_id_point}}</td>
+    <td style="color: black">{{r.name_point}}</td>
+    <td style="color: black">{{r.address_point}}</td>
+    <td style="color: black">{{r.city}}</td>
+    <td style="color: black">
+        <a target="_blank"
+            href="https://maps.google.com/?q={{r.latitude_point|floatformat:'.2d'}},{{r.longitude_point|floatformat:'.2d'}}">
+            {{r.latitude_point|floatformat:".2d"}},{{r.longitude_point|floatformat:".2d"}}
+        </a>
+    </td>
+    <td data-ecopoint-id="{{r.id}}">
+        <a class="button accept_ecopoint" style="color: rgba(62, 216, 62, 0.842)"><i class="fa fa-check-circle-o"
+                aria-hidden="true"></i>
+        </a>
+        <a class="button decline_ecopoint" style="color: rgb(226, 27, 27)"><i class="fa fa-times"
+                aria-hidden="true"></i>
+        </a>
+    </td>
+</tr>
+{% endfor %}

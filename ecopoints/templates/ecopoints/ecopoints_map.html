@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+Mapa de los puntos
+{% endblock title %}
+{% load leaflet_tags %}
+
+{% block content %}
+<section id="banner">
+    <h2>Mapa</h2>
+</section>
+<!-- Main -->
+<section id="main" class="container">
+    <section class="box special">
+        <div class="select-container" style="padding-bottom: 15px;">
+            <select name="citys" class="citys">
+                {% for co in countrys %}
+                <optgroup label="{{co.name}}">
+                    {% for c in citys %}
+                    {% if c.country_id == co.id and c.id == request.user.person.city.id %}
+                    <option value="{{c.id}}" selected data-value-lon='{{c.longitude|floatformat:".2d"}}'
+                        data-value-lat='{{c.latitude|floatformat:".2d"}}'>{{c.name}}</option>
+                    {% elif c.country_id == co.id %}
+                    <option value="{{c.id}}" data-value-lon='{{c.longitude|floatformat:".2d"}}'
+                        data-value-lat='{{c.latitude|floatformat:".2d"}}'>{{c.name}}</option>
+                    {% endif %}
+                {% endfor %}
+                </optgroup>
+                {% endfor %}
+            </select>
+        </div>
+        {% leaflet_map "map" callback="map_init" %}
+        <br>
+        <a href="{% url 'core:home' %}" class="button">Volver al inicio</a>
+    </section>
+
+</section>
+{% leaflet_js %}
+{% leaflet_css %}
+<script type="text/javascript">
+
+    function map_init(map, options) {
+        /* start-ignore*/
+        {% for r in recyclingpoint_list %}
+        var lon = '{{ r.longitude_point|floatformat:".2d" }}';
+        var lat = '{{ r.latitude_point|floatformat:".2d" }}';
+        L.marker([lat, lon]).addTo(map).bindPopup("<b>{{r.name_point}}</b><br>{{r.address_point}}, {{r.city.name}}.");
+        {% endfor %}
+        map.setView(['{{ request.user.person.city.latitude|floatformat:".2d" }}', '{{ request.user.person.city.longitude|floatformat:".2d" }}'], 12);
+        $('select[name=citys]').change(function () {
+            var lon = $('option:selected').attr("data-value-lon");
+            var lat = $('option:selected').attr("data-value-lat");
+            map.setView([lat, lon], 12)
+        });
+    }
+</script>
+{% endblock content %}

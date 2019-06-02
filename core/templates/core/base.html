@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+{% load static %}
+<html>
+
+<head>
+	<title>{% block title %}
+		{% endblock title %}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="{% static 'core/css/main.css' %} " />
+</head>
+
+<body class="landing is-preload">
+	<div id="page-wrapper">
+		<!-- Header -->
+		{% include 'core/includes/header.html' %}
+		<!-- MAIN -->
+		{% block content %}
+		{% endblock content %}
+		<!-- CTA -->
+		<section id="cta">
+
+			<h2>Sign up for beta access</h2>
+			<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc.</p>
+
+			<form>
+				<div class="row gtr-50 gtr-uniform">
+					<div class="col-8 col-12-mobilep">
+						<input type="email" name="email" id="email" placeholder="Email Address" />
+					</div>
+					<div class="col-4 col-12-mobilep">
+						<input type="submit" value="Sign Up" class="fit" />
+					</div>
+				</div>
+			</form>
+
+		</section>
+		{% include 'core/includes/footer.html' %}
+	</div>
+</body>
+<script src="{% static 'core/js/jquery.min.js' %} "></script>
+<script src="{% static 'core/js/jquery.dropotron.min.js' %} "></script>
+<script src="{% static 'core/js/jquery.scrollex.min.js' %} "></script>
+<script src="{% static 'core/js/browser.min.js' %} "></script>
+<script src="{% static 'core/js/breakpoints.min.js' %} "></script>
+<script src="{% static 'core/js/util.js' %} "></script>
+<script src="{% static 'core/js/main.js' %} "></script>
+
+</html>

@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+    Tipo de registro
+{% endblock title %}
+
+{% block content %}
+<section id="banner">
+    <h2>Bienvenido</h2>
+    <p>Ya tienes una cuenta?</p>
+    <ul class="actions special">
+        <li><a href="{% url 'login' %}" class="button primary">Log in</a></li>
+    </ul>
+</section>
+<section id="main" class="container">
+    <section class="box special">
+        <header class="major">
+            <h2>Selecciona el tipo de registro que quieres</h2>
+        </header>
+        <!-- Form -->
+        <a class="button" href="{% url 'registration:municipality_signup' %}" style="font-weight: 700">Registro Municipalidad</a>
+
+        <a class="button" href="{% url 'registration:person_signup' %}" style="font-weight: 700">Registro Persona</a>
+    </section>
+</section>
+{% endblock content %}
+    
+    

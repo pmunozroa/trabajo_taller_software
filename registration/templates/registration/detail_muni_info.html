@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+Detalle {{municipality.name_municipality}}
+{% endblock title %}
+{% block content %}
+<section id="banner">
+    <h2>Información detallada de usuario.</h2>
+</section>
+<section id="main" class="container">
+    <section class="box special">
+        <p><h2><u>{{municipality.name_municipality}}</u></h2></p>
+        <p>RUT: {{municipality.real_id_municipality}}</p>
+        <p>Correo: <a href="mailto:{{municipality.user.email}}">{{municipality.user.email}}</a></p>
+        <a href="{% url 'core:home' %}" class="button">Volver</a>
+    </section>
+</section>
+{% endblock content %}

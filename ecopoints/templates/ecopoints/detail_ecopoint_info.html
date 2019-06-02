@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+Detalle {{recyclingpoint.name_point}}
+{% endblock title %}
+{% block content %}
+<section id="banner">
+    <h2>Información detallada del punto de reciclaje.</h2>
+</section>
+<section id="main" class="container">
+    <section class="box special">
+        <p><h2><u>{{recyclingpoint.name_point}}</u></h2></p>
+        <p>RUT: {{recyclingpoint.real_id_point}}</p>
+        <p>Dirección: {{recyclingpoint.address_point}}</p>
+        <p>Comuna: {{recyclingpoint.city.name}}</p>
+        <p>Región: {{recyclingpoint.country.name}}</p>
+        <p>Activo: 
+            
+            {% if recyclingpoint.is_active %}
+                Activo
+            {% elif not recyclingpoint.is_active %}
+                Inactivo
+            {% endif %}
+                
+        </p>
+        <a href="{% url 'ecopoints:history_request' %}" class="button">Volver</a>
+    </section>
+</section>
+{% endblock content %}

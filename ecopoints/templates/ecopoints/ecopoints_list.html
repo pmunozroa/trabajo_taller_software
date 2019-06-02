@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+En espera de aprobación
+{% endblock title %}
+{% block content %}
+<!-- Banner -->
+<section id="banner">
+    <h2>Puntos de reciclaje - {{request.user.municipality.country}} - {{request.user.municipality.city}}</h2>
+</section>
+<!-- Main -->
+<section id="main" class="container">
+    <section class="box special">
+        <h2>Listado de puntos de reciclajes en espera de revisión en su comuna.</h2>
+        <!-- Form -->
+        {% if recyclingpoint_list %}
+        <table id="ecopointsForAprove" data-ecopoints-url="{% url 'ecopoints:update_recycling_status' %}">
+            <thead>
+                <td style="color: black">RUT</td>
+                <td style="color: black">Nombre</td>
+                <td style="color: black">Dirección</td>
+                <td style="color: black">Comuna</td>
+                <td style="color: black">Coordenadas</td>
+                <td style="color: black">Acciones</td>
+
+            </thead>
+            <tbody id="bodytable">
+                {% include 'ecopoints/response/ecopoints_list.html' %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No hay ningun punto en espera de revisión en su zona.</p>
+        {% endif %}
+    </section>
+</section>
+<script src="{% static 'ecopoints/js/status-change.js' %} "></script>
+{% endblock content %}

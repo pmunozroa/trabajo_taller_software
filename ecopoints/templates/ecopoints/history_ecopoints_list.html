@@ -1,0 +1,51 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+Historial
+{% endblock title %}
+{% block content %}
+<!-- Banner -->
+<section id="banner">
+    <h2>Puntos de reciclaje - Aprobados y Rechazados</h2>
+</section>
+<!-- Main -->
+<section id="main" class="container">
+    <section class="box special">
+        <h2>Historial de peticiones evaluadas.</h2>
+        <!-- Form -->
+        {% if recyclingpointrequest_list %}
+        <table>
+            <thead>
+                <td style="color: black">Fecha de solicitud</td>
+                <td style="color: black">Fecha de revision</td>
+                <td style="color: black">Punto de reciclaje</td>
+                <td style="color: black">Usuario</td>
+                <td style="color: black">Estado</td>
+            </thead>
+            <tbody id="bodytable">
+                {% for r in recyclingpointrequest_list %}
+                <tr>
+                    <td style="color: black">{{r.request_date}}</td>
+                    <td style="color: black">{{r.request_approbation_date}}</td>
+                    <td style="color: black"><a class="button" href="{% url 'ecopoints:recycling_detail' r.request_recyclingpoint_id %}"
+                            data-number-point="">Ver</a></td>
+                    <td style="color: black"><a class="button" href="{% url 'registration:detail_user' r.request_user_id %}">Ver</a>
+                    </td>
+                    <td style="color: black">
+
+                        {% if r.was_approved %}
+                        <span style="color: green">Aprobado</span>
+                        {% elif not r.was_approved %}
+                        <span style="color: red">Rechazado</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No hay ningun punto activo en su zona.</p>
+        {% endif %}
+    </section>
+</section>
+{% endblock content %}

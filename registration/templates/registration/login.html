@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+Login
+{% endblock title %}
+{% block content %}
+{% if request.user.is_authenticated %}
+<script>
+    window.location.href = '{% url "core:home" %}';
+</script>
+{% endif %}
+<!-- Banner -->
+<section id="banner">
+    <h2>Login Form</h2>
+    <p>Aún no tienes una cuenta?</p>
+    <ul class="actions special">
+        <li><a href="{% url 'registration:signup' %}" class="button primary">Sign up</a></li>
+    </ul>
+</section>
+<!-- Main -->
+<section id="main" class="container">
+    <section class="box special">
+        <header class="major">
+            <h2>Ingrese sus credenciales</h2>
+        </header>
+        {% if 'register' in request.GET %}
+        <p style="color:green;">Usuario registrado correctamente</p>
+        {% endif %}
+        <!-- Form -->
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Ingresar" class="fit" />
+        </form>
+    </section>
+</section>
+{% endblock content %}

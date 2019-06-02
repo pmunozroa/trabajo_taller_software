@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+Sign up
+{% endblock title %}
+{% block content %}
+<!-- Banner -->
+<section id="banner">
+    <h2>Bienvenido</h2>
+    <p>Ya tienes una cuenta?</p>
+    <ul class="actions special">
+        <li><a href="{% url 'login' %}" class="button primary">Log in</a></li>
+    </ul>
+</section>
+<!-- Main -->
+<section id="main" class="container">
+    <section class="box special">
+        <header class="major">
+            <h2>Registro tipo: {{registre_type}}</h2>
+            {% if form.non_field_errors %}
+            <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
+            {% endif %}
+        </header>
+        <!-- Form -->
+        <form action="" method="post" id="personForm" data-cities-url="{% url 'registration:ajax_load_cities' %}">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Registrarse" class="fit" />
+        </form>
+    </section>
+</section>
+<script src="{% static 'registration/js/load-cities.js' %} "></script>
+{% endblock content %}
