@@ -1,0 +1,14 @@
+autopep8==1.4.4
+certifi==2019.3.9
+Django==2.2.1
+django-extensions==2.1.7
+django-leaflet==0.24.0
+graphviz==0.10.1
+mysqlclient==1.4.2.post1
+pep8==1.7.1
+pycodestyle==2.5.0
+pydotplus==2.0.2
+pyparsing==2.4.0
+pytz==2019.1
+six==1.12.0
+sqlparse==0.3.0
