@@ -7,12 +7,17 @@
 
             {% if request.user.is_person %}
             <li><a href="{% url 'ecopoints:map_view' %}" class="button">Ver los puntos de mi comuna</a></li>
-            {% endif %}
-
-            {% if not request.user.is_authenticated %}
+            {% elif not request.user.is_authenticated %}
             <li><a href="{% url 'registration:signup' %}" class="button">Sign Up</a></li>
             <li>or</li>
             <li><a href="{% url 'registration:login' %} " class="button">Log in</a></li>
+            {% elif request.user.is_superuser %}
+            <li>
+                <a href="{% url 'admin:index' %}" class="button">Ir al panel de administrador</a>
+                <ul>
+                    <li><a href="{% url 'logout' %}">Salir</a></li>
+                </ul>
+            </li>
             {% else %}
             <li>
 

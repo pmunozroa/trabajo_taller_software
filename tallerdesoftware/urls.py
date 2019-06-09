@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include(core_patterns)),
     # Admin Path
     path('admin/', admin.site.urls),
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
     # Login Path
     path('accounts/', include(registration_patterns)),
     path('ecopoints/', include(ecopoints_patterns)),
