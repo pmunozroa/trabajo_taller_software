@@ -1,0 +1,1 @@
+h 2jsXhr.ecopoints/static/ecopoints/js/status-change.js

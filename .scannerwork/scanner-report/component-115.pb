@@ -1,0 +1,1 @@
+s 2pyXˆhrtallerdesoftware/settings.py

@@ -1,0 +1,151 @@
+Environment variables:
+  - CLUTTER_BACKEND=x11
+  - COLORTERM=truecolor
+  - COMPIZ_CONFIG_PROFILE=mate
+  - DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+  - DEFAULTS_PATH=/usr/share/gconf/mate.default.path
+  - DESKTOP_SESSION=mate
+  - DISPLAY=:0.0
+  - GDMSESSION=mate
+  - GDM_LANG=es_CL
+  - GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+  - GTK_MODULES=gail:atk-bridge
+  - GTK_OVERLAY_SCROLLING=0
+  - HOME=/home/patricio
+  - JAVA_HOME=/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/jre
+  - LANG=es_CL.UTF-8
+  - LANGUAGE=es_CL:es
+  - LC_CTYPE=es_CL.UTF-8
+  - LESS=-R
+  - LOGNAME=patricio
+  - LSCOLORS=Gxfxcxdxbxegedabagacad
+  - LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+  - MANDATORY_PATH=/usr/share/gconf/mate.mandatory.path
+  - MATE_DESKTOP_SESSION_ID=this-is-deprecated
+  - NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat
+  - OLDPWD=/home/patricio/Escritorio/Proyectos
+  - PAGER=less
+  - PATH=/home/patricio/anaconda3/bin:/home/patricio/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/patricio/Descargas/Sonar/sonarqube-7.7/bin/linux-x86-64:/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/bin
+  - PWD=/home/patricio/Escritorio/Proyectos/tallerdesoftware
+  - QT_ACCESSIBILITY=1
+  - QT_AUTO_SCREEN_SCALE_FACTOR=0
+  - QT_QPA_PLATFORMTHEME=qt5ct
+  - QT_SCALE_FACTOR=1
+  - SESSION_MANAGER=local/HPPavilion:@/tmp/.ICE-unix/1248,unix/HPPavilion:/tmp/.ICE-unix/1248
+  - SHELL=/usr/bin/zsh
+  - SHLVL=1
+  - SSH_AGENT_PID=1579
+  - SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+  - TERM=xterm
+  - USER=patricio
+  - VTE_VERSION=5202
+  - WINDOWID=46205668
+  - XAUTHORITY=/home/patricio/.Xauthority
+  - XDG_CONFIG_DIRS=/etc/xdg/xdg-mate:/etc/xdg
+  - XDG_CURRENT_DESKTOP=MATE
+  - XDG_DATA_DIRS=/usr/share/mate:/home/patricio/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+  - XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/patricio
+  - XDG_RUNTIME_DIR=/run/user/1000
+  - XDG_SEAT=seat0
+  - XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+  - XDG_SESSION_DESKTOP=mate
+  - XDG_SESSION_ID=c1
+  - XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+  - XDG_SESSION_TYPE=x11
+  - XDG_VTNR=7
+  - XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt
+  - ZSH=/home/patricio/.oh-my-zsh
+  - _=/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner
+System properties:
+  - awt.toolkit=sun.awt.X11.XToolkit
+  - file.encoding=UTF-8
+  - file.encoding.pkg=sun.io
+  - file.separator=/
+  - java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment
+  - java.awt.headless=true
+  - java.awt.printerjob=sun.print.PSPrinterJob
+  - java.class.path=/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/lib/sonar-scanner-cli-3.3.0.1492.jar
+  - java.class.version=52.0
+  - java.endorsed.dirs=/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/jre/lib/endorsed
+  - java.ext.dirs=/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/jre/lib/ext:/usr/java/packages/lib/ext
+  - java.home=/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/jre
+  - java.io.tmpdir=/tmp
+  - java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+  - java.runtime.name=Java(TM) SE Runtime Environment
+  - java.runtime.version=1.8.0_121-b13
+  - java.specification.name=Java Platform API Specification
+  - java.specification.vendor=Oracle Corporation
+  - java.specification.version=1.8
+  - java.vendor=Oracle Corporation
+  - java.vendor.url=http://java.oracle.com/
+  - java.vendor.url.bug=http://bugreport.sun.com/bugreport/
+  - java.version=1.8.0_121
+  - java.vm.info=mixed mode
+  - java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+  - java.vm.specification.name=Java Virtual Machine Specification
+  - java.vm.specification.vendor=Oracle Corporation
+  - java.vm.specification.version=1.8
+  - java.vm.vendor=Oracle Corporation
+  - java.vm.version=25.121-b13
+  - line.separator=
+
+  - os.arch=amd64
+  - os.name=Linux
+  - os.version=4.15.0-50-generic
+  - path.separator=:
+  - project.home=/home/patricio/Escritorio/Proyectos/tallerdesoftware
+  - scanner.home=/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux
+  - sun.arch.data.model=64
+  - sun.boot.class.path=/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/jre/lib/resources.jar:/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/jre/lib/rt.jar:/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/jre/lib/sunrsasign.jar:/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/jre/lib/jsse.jar:/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/jre/lib/jce.jar:/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/jre/lib/charsets.jar:/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/jre/lib/jfr.jar:/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/jre/classes
+  - sun.boot.library.path=/home/patricio/Descargas/Scanner/sonar-scanner-3.3.0.1492-linux/jre/lib/amd64
+  - sun.cpu.endian=little
+  - sun.cpu.isalist=
+  - sun.io.unicode.encoding=UnicodeLittle
+  - sun.java.command=org.sonarsource.scanner.cli.Main -Dsonar.projectKey=Taller -Dsonar.sources=. -X
+  - sun.java.launcher=SUN_STANDARD
+  - sun.jnu.encoding=UTF-8
+  - sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+  - sun.os.patch.level=unknown
+  - user.country=CL
+  - user.dir=/home/patricio/Escritorio/Proyectos/tallerdesoftware
+  - user.home=/home/patricio
+  - user.language=es
+  - user.name=patricio
+  - user.timezone=America/Santiago
+SonarQube plugins:
+  - SonarPython 1.14.0.3086 (python)
+  - SonarCSS 1.0.3.724 (cssfamily)
+  - JaCoCo 1.0.1.143 (jacoco)
+  - SonarGo 1.1.0.1612 (go)
+  - SonarKotlin 1.5.0.315 (kotlin)
+  - Svn 1.9.0.1295 (scmsvn)
+  - SonarJS 5.1.1.7506 (javascript)
+  - SonarRuby 1.5.0.315 (ruby)
+  - SonarScala 1.5.0.315 (sonarscala)
+  - SonarC# 7.11.0.8083 (csharp)
+  - SonarJava 5.11.0.17289 (java)
+  - LDAP 2.2.0.608 (ldap)
+  - SonarHTML 3.1.0.1615 (web)
+  - Git 1.8.0.1574 (scmgit)
+  - SonarFlex 2.4.0.1222 (flex)
+  - SonarXML 2.0.1.2020 (xml)
+  - SonarPHP 3.0.0.4537 (php)
+  - SonarTS 1.9.0.3766 (typescript)
+  - SonarVB 7.11.0.8083 (vbnet)
+Global server settings:
+  - sonar.core.id=BF41A1F2-AWteXnWtH8nXxyEFTIcp
+  - sonar.core.startTime=2019-06-16T00:14:26-0400
+Project server settings:
+  - sonar.cpd.cross_project=true
+  - sonar.css.file.suffixes=.less,.scss
+  - sonar.html.file.suffixes=.xhtml,.cshtml,.vbhtml,.aspx,.ascx,.rhtml,.erb,.shtm,.shtml
+Project scanner properties:
+  - sonar.host.url=http://localhost:9000
+  - sonar.projectBaseDir=/home/patricio/Escritorio/Proyectos/tallerdesoftware
+  - sonar.projectKey=Taller
+  - sonar.scanner.app=ScannerCli
+  - sonar.scanner.appVersion=3.3.0.1492
+  - sonar.sourceEncoding=UTF-8
+  - sonar.sources=.
+  - sonar.verbose=true
+  - sonar.working.directory=/home/patricio/Escritorio/Proyectos/tallerdesoftware/.scannerwork

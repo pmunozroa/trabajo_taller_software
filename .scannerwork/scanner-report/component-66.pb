@@ -1,0 +1,1 @@
+B 2pyXhrregistration/urls.py

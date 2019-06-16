@@ -4,13 +4,21 @@
         <ul>
             <li><a href="{% url 'core:home' %}">Home</a></li>
             <li><a href="{% url 'core:about' %}">Acerca de nosotros</a></li>
-
-            {% if request.user.is_person %}
-            <li><a href="{% url 'ecopoints:map_view' %}" class="button">Ver los puntos de mi comuna</a></li>
-            {% elif not request.user.is_authenticated %}
+            {% if not request.user.is_authenticated %}
             <li><a href="{% url 'registration:signup' %}" class="button">Sign Up</a></li>
             <li>or</li>
             <li><a href="{% url 'registration:login' %} " class="button">Log in</a></li>
+            {% elif request.user.is_person %}
+            <li><a href="{% url 'ecopoints:map_view' %}" class="button">Ver los puntos de mi comuna</a></li>
+            <li>
+                <a href=" #" class="button">{{request.user.username}}</a>
+                <ul>
+                    <li><a href="{% url 'ecopoints:request' %}">Solicitar nuevo punto</a></li>
+                    <li><a href="{% url 'registration:detail_muni' user.person.city.name %}">Mi
+                            municipalidad</a></li>
+                    <li><a href="{% url 'logout' %}">Log out</a></li>
+                </ul>
+            </li>
             {% elif request.user.is_superuser %}
             <li>
                 <a href="{% url 'admin:index' %}" class="button">Ir al panel de administrador</a>
@@ -18,24 +26,13 @@
                     <li><a href="{% url 'logout' %}">Salir</a></li>
                 </ul>
             </li>
-            {% else %}
+            {% elif request.user.is_municipality %}
             <li>
-
-                {% if request.user.is_person %}
-                <a href=" #" class="button">{{request.user.username}}</a>
-                {% elif request.user.is_municipality %}
                 <a href=" #" class="button">{{request.user.municipality}}</a>
-                {% endif %}
-
                 <ul>
-                    {% if request.user.is_person %}
-                    <li><a href="{% url 'ecopoints:request' %}">Solicitar nuevo punto</a></li>
-                    <li><a href="{% url 'registration:detail_muni' user.person.city.name %}">Mi municipalidad</a></li>
-                    {% elif request.user.is_municipality %}
                     <li><a href="{% url 'ecopoints:for_aprove' %}">Ver solicitudes</a></li>
                     <li><a href="{% url 'ecopoints:points' %}">Ver Puntos existentes</a></li>
                     <li><a href="{% url 'ecopoints:history_request' %}">Historial de solicitudes</a></li>
-                    {% endif %}
                     <li><a href="{% url 'logout' %}">Log out</a></li>
                 </ul>
             </li>

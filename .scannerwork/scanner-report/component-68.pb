@@ -1,0 +1,1 @@
+D 2pyXhr#registration/migrations/__init__.py

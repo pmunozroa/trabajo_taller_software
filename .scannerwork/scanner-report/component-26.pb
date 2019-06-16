@@ -1,0 +1,1 @@
+ 2cssXZhr*core/static/core/sass/libs/_functions.scss

@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
+import re
 from .models import Person, City, Country, User, Municipality
 from django.core.validators import RegexValidator
 from django.utils.translation import ugettext_lazy as _
@@ -14,7 +15,7 @@ class PersonSignUpForm(UserCreationForm):
 
     last_name = forms.CharField(required=True, label='Primer apellido')
     real_id_user = forms.CharField(required=True, max_length=12, label='RUN', validators=[
-        RegexValidator('^0*(\d{1,3}(\.?\d{3})*)\-?([\dkK])$')], help_text="Formato: 12.345.678-K")
+        RegexValidator('^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$')], help_text="Formato: 12.345.678-K")
     country = forms.ModelChoiceField(queryset=Country.objects.all(),
                                      widget=forms.Select, required=True, label='Región')
     city = forms.ModelChoiceField(queryset=City.objects.all(),
@@ -64,7 +65,7 @@ class MunicipalitySignUpForm(UserCreationForm):
         self.fields['real_id_municipality'].widget.attrs.update({'autofocus': 'autofocus'})
 
     real_id_municipality = forms.CharField(required=True, max_length=12, label='RUT', validators=[
-        RegexValidator('^0*(\d{1,3}(\.?\d{3})*)\-?([\dkK])$')], help_text="Formato: 12.345.678-K")
+        RegexValidator('^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$')], help_text="Formato: 70.000.000-K")
     name_municipality = forms.CharField(
         required=True, max_length=100, label='Nombre municipalidad')
     country = forms.ModelChoiceField(queryset=Country.objects.all(),
@@ -93,3 +94,13 @@ class MunicipalitySignUpForm(UserCreationForm):
         municipality.city = self.cleaned_data.get('city')
         municipality.save()
         return user
+
+    def clean_email(self):
+        if User.objects.filter(email=self.cleaned_data['email']).exists():
+            raise forms.ValidationError("El correo ya se encuentra en uso")
+        return self.cleaned_data['email']
+
+    def clean_real_id_user(self):
+        if Person.objects.filter(real_id_user=self.cleaned_data['real_id_municipality']).exists():
+            raise forms.ValidationError("El rut ya se encuentra registrado")
+        return self.cleaned_data['real_id_municipality']

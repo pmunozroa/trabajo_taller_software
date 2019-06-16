@@ -1,0 +1,1 @@
+E 2pyXhr2registration/migrations/0002_auto_20190531_2128.py

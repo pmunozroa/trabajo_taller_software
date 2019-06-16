@@ -1,0 +1,1 @@
+c 2pyX+hr/ecopoints/migrations/0002_auto_20190526_2047.py

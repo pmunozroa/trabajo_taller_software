@@ -1,0 +1,1 @@
+ 2cssXøhr'core/static/core/sass/libs/_vendor.scss

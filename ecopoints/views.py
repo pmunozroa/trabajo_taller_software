@@ -6,11 +6,11 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, ListView
-
 from registration.decorators import municipality_required, person_required
 from registration.models import City, Municipality, Country
 
 from .models import RecyclingPoint, RecyclingPointRequest
+from .forms import RecyclingPointForm
 
 # Create your views here.
 
@@ -39,9 +39,7 @@ class RecyclingPointCreateView(CreateView):
     :template:`ecopoints/ecopoints_form.html`
     """
 
-    model = RecyclingPoint
-    fields = ('real_id_point', 'name_point', 'address_point',
-              'latitude_point', 'longitude_point')
+    form_class = RecyclingPointForm
     success_url = reverse_lazy('core:home')
     template_name = "ecopoints/ecopoints_form.html"
 

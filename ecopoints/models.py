@@ -2,6 +2,7 @@ from django.db import models
 from registration.models import Country, City
 from django.utils import timezone
 from registration.models import Person, Municipality
+from django.core.validators import RegexValidator
 # Create your models here.
 
 
@@ -12,13 +13,18 @@ class RecyclingPoint(models.Model):
     """
     
     real_id_point = models.CharField(
-        max_length=12, unique=True, verbose_name='RUT de la Empresa')
+        max_length=12, unique=True, verbose_name='RUT de la Empresa', validators=[
+            RegexValidator(
+                regex='^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$',
+                message='RUT Incorrecto',
+            ),
+        ])
     name_point = models.CharField(
         max_length=50, verbose_name='Nombre de la empresa')
     address_point = models.CharField(
         max_length=100, verbose_name='Dirección de la empresa')
-    latitude_point = models.FloatField(verbose_name='Latitud')
-    longitude_point = models.FloatField(verbose_name='Longitud')
+    latitude_point = models.FloatField(verbose_name='Latitud', help_text='Ingrese los valores con puntos para separar decimales')
+    longitude_point = models.FloatField(verbose_name='Longitud', help_text='Ingrese los valores con puntos para separar decimales')
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True,
                                 verbose_name='Región en que está situada la empresa')
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True,

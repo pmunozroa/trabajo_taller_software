@@ -150,6 +150,11 @@ class MunicipalitySignUpView(NotLoginRequiredMixin, CreateView):
         """
         
         return reverse_lazy('registration:login') + '?register'
+    
+    def form_valid(self, form):
+        if Municipality.objects.count() == User.objects.filter(is_municipality=1).count():
+            raise Http404
+        return super().form_valid(form)
 
 
 class LoginTemplateView(LoginView):
