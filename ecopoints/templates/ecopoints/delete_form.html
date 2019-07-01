@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Confirmación de eliminación de registro{% endblock %}
+{% block content %}
+<section id="banner">
+    <h2>Eliminación de punto de reciclaje <br><u>{{recyclingpoint.name_point}}</u></h2>
+</section>
+<section id="main" class="container">
+    <section class="box special">
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>¿Estás seguro que quieres borrar "{{recyclingpoint.name_point}}"?</p>
+            <input type="submit" value="Sí, estoy seguro" />
+            <a href="{% url 'ecopoints:points' %}" class="button">Cancelar</a>
+        </form>
+    </section>
+</section>
+{% endblock%}

@@ -5,7 +5,7 @@ from django.http import Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, DetailView, ListView
+from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 from registration.decorators import municipality_required, person_required
 from registration.models import City, Municipality, Country
 
@@ -269,3 +269,30 @@ class RecyclingPointMapView(ListView):
         context["citys"] = City.objects.all()
         context["countrys"] = Country.objects.all()
         return context
+
+@method_decorator([login_required, municipality_required], name='dispatch')
+class RecyclingPointDeleteView(DeleteView):
+    model = RecyclingPoint
+    template_name = "ecopoints/delete_form.html"
+    success_url = reverse_lazy('ecopoints:points')
+
+@method_decorator([login_required, municipality_required], name='dispatch')
+class RecyclingPointUpdateView(UpdateView):
+    model = RecyclingPoint
+    template_name = "ecopoints/update_form.html"
+    fields = ('name_point', 'address_point', 'latitude_point', 'longitude_point')
+    success_url = reverse_lazy('ecopoints:points')
+    
+    def get_form(self, form_class=None):
+        
+        """
+        Obtiene la instancia del formulario actual para cambiar el tipo de input para los campos de
+        """
+
+        if form_class is None:
+            form_class = self.get_form_class()
+        form_class.__dict__['base_fields']['latitude_point'].widget = (
+            forms.TextInput())
+        form_class.__dict__['base_fields']['longitude_point'].widget = (
+            forms.TextInput())
+        return form_class(**self.get_form_kwargs())

@@ -21,6 +21,7 @@ Listado Puntos de reciclaje
                 <td style="color: black">Dirección</td>
                 <td style="color: black">Comuna</td>
                 <td style="color: black">Coordenadas</td>
+                <td style="color: black" colspan="2">Acciones</td>
             </thead>
             <tbody id="bodytable">
                 {% for r in recyclingpoint_list %}
@@ -37,6 +38,8 @@ Listado Puntos de reciclaje
                             {{r.latitude_point|floatformat:".2d"}},{{r.longitude_point|floatformat:".2d"}}
                         </a>
                     </td>
+                    <td><a href="{% url 'ecopoints:update_point' r.id %}" class="button">Actualizar</a></td>
+                    <td><a href="{% url 'ecopoints:delete_request' r.id %}" class="button">Eliminar</a></td>
                 </tr>
                 {% endfor %}
             </tbody>

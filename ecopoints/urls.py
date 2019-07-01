@@ -1,5 +1,8 @@
 from django.urls import path
-from .views import RecyclingPointMapView, RecyclingPointCreateView, RecyclingPointListView, InactivesRecyclingPointListView, status_ecopoint, EvaluatedRecyclingPointRequestList, RecyclingPointDetailView
+from .views import (EvaluatedRecyclingPointRequestList,
+                    InactivesRecyclingPointListView, RecyclingPointCreateView,
+                    RecyclingPointDetailView, RecyclingPointListView,
+                    RecyclingPointMapView, status_ecopoint, RecyclingPointDeleteView, RecyclingPointUpdateView)
 
 ecopoints_patterns = ([
     path('request/', RecyclingPointCreateView.as_view(), name='request'),
@@ -10,4 +13,6 @@ ecopoints_patterns = ([
     path('history/', EvaluatedRecyclingPointRequestList.as_view(), name='history_request'),
     path('detail/<int:pk>/', RecyclingPointDetailView.as_view(), name='recycling_detail'),
     path('maps/', RecyclingPointMapView.as_view(), name='map_view'),
+    path('delete/<int:pk>/', RecyclingPointDeleteView.as_view(), name='delete_request'),
+    path('update/<int:pk>/', RecyclingPointUpdateView.as_view(), name='update_point'),
 ], 'ecopoints')

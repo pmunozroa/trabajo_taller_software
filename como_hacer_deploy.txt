@@ -1,0 +1,34 @@
+O puede hacer un git clone git@github.com:pmunozroa/trabajo_taller_software.git
+
+> Sistema Operativo: Linux Mint 19.1
+
+> Versión de Python utilizada: 3.7
+
+> Versión de MySQL utilizada: 14.14 Distrib 5.7.26
+
+> Módulos instalados en django están en requeriments.txt
+
+> Cómo instalar los módulos listados en requeriments.txt: 
+    pip install -r requeriments.txt
+
+> Respaldo de la base de datos hasta la última modificación está en db_respaldo.sql
+
+> Cómo cargar el dump de MySQL
+    mysql -u username -p < db_respaldo.sql
+    En cualquier caso, el nombre de la base de datos es tallersoftware, la
+    cual puede ser creada antes
+
+> Cambiar el username y password que se utilizan para entrar a MySQL en el archivo settings.py dentro de tallerdesoftware
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tallersoftware',
+        'USER': 'pmunoz',
+        'PASSWORD': 'root',
+        'PORT': '3306',
+    }
+}
+
+> Ya debería estar todo en regla para poder iniciar el servidor de Django con el comando:
+    python manage.py runserver
+

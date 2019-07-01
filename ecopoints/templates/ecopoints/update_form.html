@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Actualización de punto{% endblock %}
+{% block content %}
+<section id="banner">
+    <h2>Actualización de punto de reciclaje <br><u>{{recyclingpoint.name_point}}</u></h2>
+</section>
+<section id="main" class="container">
+    <section class="box special">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Actualizar" />
+        </form>
+    </section>
+</section>
+{% endblock%}
