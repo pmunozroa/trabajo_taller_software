@@ -39,7 +39,7 @@ class SignUpCreateView(NotLoginRequiredMixin, TemplateView):
 
 
 class PersonSignUpView(NotLoginRequiredMixin, CreateView):
-    
+
     """
     Renderiza el template y formulario para creación de :model:`registration.User`.
 
@@ -49,7 +49,7 @@ class PersonSignUpView(NotLoginRequiredMixin, CreateView):
 
     ``model``
     Instancia de :model:`registration.User`.
-    
+
     ``form_class``
     Instancia del formulario PersonSignUpForm para crear :model:`registration.Person` asociada a la instancia de :model:`registration.User`.
 
@@ -57,32 +57,29 @@ class PersonSignUpView(NotLoginRequiredMixin, CreateView):
 
     :template:`registration/signup.html`
     """
-    
+
     model = User
     form_class = PersonSignUpForm
     template_name = 'registration/signup.html'
 
     def get_context_data(self, **kwargs):
-        
         """
         Añade al diccionario de instancia, user_type que contiene el valor persona y registre_type que contiene el valor Persona o Empresa.
         """
-        
+
         kwargs['user_type'] = 'person'
         kwargs['registre_type'] = 'Persona o Empresa'
         return super().get_context_data(**kwargs)
 
     def get_success_url(self):
-        
         """
         Metodo que redirecciona al template login con el parametro ?register para indicar que se realizó con exito y mostrar un mensaje para el usuario.
         """
-        
+
         return reverse_lazy('registration:login') + '?register'
 
 
 def load_cities(request):
-    
     """
     Renderiza listado de :model:`registration.City` registrados  y los filtra según la el ID de :model:`registration.Country` solicitada.
 
@@ -92,7 +89,7 @@ def load_cities(request):
 
     ``country_id``
     ID de :model:`registration.Country` a instanciar.
-    
+
     ``cities``
     Listado de :model:`ecopoints.RecyclingPoint` asociada al ``country_id``.
 
@@ -100,7 +97,7 @@ def load_cities(request):
 
     :template:`registration/response/city_dropdown.html`
     """
-    
+
     if request.method == 'GET' and request.is_ajax():
         country_id = request.GET.get('country')
         cities = City.objects.filter(country_id=country_id).order_by('name')
@@ -110,7 +107,7 @@ def load_cities(request):
 
 
 class MunicipalitySignUpView(NotLoginRequiredMixin, CreateView):
-    
+
     """
     Renderiza el template y formulario para creación de :model:`registration.User`.
 
@@ -120,7 +117,7 @@ class MunicipalitySignUpView(NotLoginRequiredMixin, CreateView):
 
     ``model``
     Instancia de :model:`registration.User`.
-    
+
     ``form_class``
     Instancia del formulario MunicipalitySignUpForm para crear :model:`registration.Municipality` asociada a la instancia de :model:`registration.User`.
 
@@ -128,29 +125,27 @@ class MunicipalitySignUpView(NotLoginRequiredMixin, CreateView):
 
     :template:`registration/signup.html`
     """
-    
+
     model = User
     form_class = MunicipalitySignUpForm
     template_name = 'registration/signup.html'
 
     def get_context_data(self, **kwargs):
-        
         """
         Añade al diccionario de instancia, user_type que contiene el valor municipality y registre_type que contiene el valor Municipalidad.
         """
-        
+
         kwargs['user_type'] = 'municipality'
         kwargs['registre_type'] = 'Municipalidad'
         return super().get_context_data(**kwargs)
 
     def get_success_url(self):
-        
         """
         Metodo que redirecciona al template login con el parametro ?register para indicar que se realizó con exito y mostrar un mensaje para el usuario.
         """
-        
+
         return reverse_lazy('registration:login') + '?register'
-    
+
     def form_valid(self, form):
         if Municipality.objects.count() == User.objects.filter(is_municipality=1).count():
             raise Http404
@@ -160,11 +155,11 @@ class MunicipalitySignUpView(NotLoginRequiredMixin, CreateView):
 class LoginTemplateView(LoginView):
     """
     Renderiza el template Login
-    
+
     ***Context:***
 
     ***Template:*** 
-    
+
     :template:`registration/login.html`
     """
     template_name = "registration/login.html"
@@ -172,7 +167,7 @@ class LoginTemplateView(LoginView):
 
 @method_decorator([login_required, municipality_required], name='dispatch')
 class PersonDetailView(DetailView):
-    
+
     """
     Renderiza el template que contiene detalles de la instancia :model:`registration.User` solicitada.
 
@@ -187,7 +182,7 @@ class PersonDetailView(DetailView):
 
     :template:`registration/detail_user_info.html`
     """
-    
+
     model = User
     template_name = "registration/detail_user_info.html"
 
@@ -208,16 +203,16 @@ class MunicipalityDetailView(DetailView):
 
     :template:`registration/detail_muni_info.html`
     """
-        
+
     model = User
     template_name = "registration/detail_muni_info.html"
 
     def get(self, request, *args, **kwargs):
-        
         """
         Fuerza al contexto a solo instanciar :model:`registration.Municipality` asociada al usuario, si no existe ninguna, lanza 404 forzado.
         """
-        
-        self.object = get_object_or_404(Municipality, city_id=self.request.user.person.city_id)
+
+        self.object = get_object_or_404(
+            Municipality, city_id=self.request.user.person.city_id)
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
